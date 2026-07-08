@@ -62,6 +62,8 @@ class PolygenDecoderLayer(nn.TransformerDecoderLayer):
         tgt_key_padding_mask: Optional[torch.Tensor] = None,
         memory_key_padding_mask: Optional[torch.Tensor] = None,
         cache: Optional[Dict[str, torch.Tensor]] = None,
+        tgt_is_causal: bool = False,
+        memory_is_causal: bool = False,
     ) -> torch.Tensor:
         """Forward method of Decoder Layer
 
@@ -73,6 +75,8 @@ class PolygenDecoderLayer(nn.TransformerDecoderLayer):
             tgt_key_padding_mask: A Tensor of shape [batch_size, sequence_length]. A Tensor that ignores specified padding elements in the target sequence.
             memory_key_padding_mask: A Tensor of shape [batch_size, source_sequence_length]. A Tensor that ignores specified padding elements in the memory sequence.
             cache: A Dictionary in the following format: {'k': torch.Tensor, 'v': torch.Tensor}. Used for fast decoding.
+            tgt_is_causal: Accepted for PyTorch 2 TransformerDecoderLayer compatibility. Polygen supplies masks explicitly.
+            memory_is_causal: Accepted for PyTorch 2 TransformerDecoderLayer compatibility. Polygen supplies masks explicitly.
 
         Returns:
             tgt: A Tensor of shape [sequence_length, batch_size, embed_size]. The resultant tensor after the forward loop of one decoder layer.

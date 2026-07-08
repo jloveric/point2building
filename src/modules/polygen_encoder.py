@@ -57,6 +57,7 @@ class PolygenEncoderLayer(TransformerEncoderLayer):
         src: torch.Tensor,
         src_mask: Optional[torch.Tensor] = None,
         src_key_padding_mask: Optional[torch.Tensor] = None,
+        is_causal: bool = False,
     ) -> torch.Tensor:
         """Forward method for the PolygenEncoderLayer
 
@@ -65,6 +66,7 @@ class PolygenEncoderLayer(TransformerEncoderLayer):
             src_mask: A Tensor of shape [sequence_length, sequence_length]. The mask for the input sequence
             src_key_padding_mask: A Tensor of shape [sequence_length, batch_size]. Tells attention which
                                   aspects of the input sequence to ignore due to them being padding
+            is_causal: Accepted for PyTorch 2 TransformerEncoder compatibility. Polygen supplies masks explicitly.
 
         Returns:
             src: A Tensor of shape [sequence_length, batch_size, embed_size]

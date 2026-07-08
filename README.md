@@ -23,8 +23,17 @@ We present a learning-based approach to reconstruct buildings as 3D polygonal me
    ```
 
    `MinkowskiEngine` is a separate native dependency and may need to be
-   installed outside of `uv sync` in an environment that can build it
-   successfully.
+   installed separately if you want to run the training/inference pipeline.
+
+3. Launch the Streamlit viewer:
+   ```bash
+   uv run streamlit run streamlit_app.py
+   ```
+
+   The viewer reads MunichWF test samples from
+   `/data2/point-cloud-datasets/MunichWF/pc_part` and pairs them with meshes in
+   `/data2/point-cloud-datasets/MunichWF/objs`, restricted to
+   `/data2/point-cloud-datasets/MunichWF/test_list.txt`.
 
 ## Usage
 
