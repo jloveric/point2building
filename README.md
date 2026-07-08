@@ -14,14 +14,17 @@ We present a learning-based approach to reconstruct buildings as 3D polygonal me
    ```bash
    git clone https://github.com/yourusername/Point2Building.git
    cd Point2Building
-    ```
+   ```
 
-2. Create a virtual environment and install dependencies:
-    ```bash
-    python -m venv venv
-    source venv/bin/activate 
-    pip install -r requirements.txt
-    ```
+2. Sync the environment with `uv`:
+   ```bash
+   uv sync
+   source .venv/bin/activate
+   ```
+
+   `MinkowskiEngine` is a separate native dependency and may need to be
+   installed outside of `uv sync` in an environment that can build it
+   successfully.
 
 ## Usage
 
@@ -29,26 +32,26 @@ We present a learning-based approach to reconstruct buildings as 3D polygonal me
 
 To train the vertex generation model, run:
     ```bash
-    python train_vertex_model.py
+    uv run python train_vertex_model.py
     ```
 
 To train the face generation model, run:
     ```bash
-    python train_face_model.py
+    uv run python train_face_model.py
     ```
 
 ### Testing
 
 To test the trained models and generate 3D polygonal meshes, run:
     ```bash
-    python test_models.py
+    uv run python test_models.py
     ```
 
 ### Visualization
 
 To visual the results of the region, run:
     ```bash
-    python visualize_city.py
+    uv run python visualize_city.py
     ```
 
 ## Downloads

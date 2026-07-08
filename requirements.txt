@@ -6,4 +6,4 @@ scipy==1.7.3
 Shapely==2.0.5
 torch==1.13.1
 tqdm==4.65.0
-warmup_scheduler==0.3.2
+warmup-scheduler==0.3
